@@ -1,9 +1,5 @@
-#userInput{
-    display:block;
-    margin: 25px auto;
-}
-
-#check{
-    display:block;
-    margin: 0 auto;
+.PhoneModel button{
+    width: 120px;
+    padding: 10px;
+    margin: 3px;
 }

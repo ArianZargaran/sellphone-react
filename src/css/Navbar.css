@@ -1,0 +1,23 @@
+.NavbarItem li{
+    list-style:none;
+}
+
+.NavbarItem li a:not([href]):not([tabindex]){
+    color:#cccccc;
+}
+
+.NavbarItem li a:not([href]):not([tabindex]):hover{
+    color:#f3f3f3;
+}
+
+/* .NavbarItem{
+    display:inline-block;
+} */
+
+@media only screen and (min-width: 992px) {
+    .NavbarItem{
+        display:inline-block;
+        text-align: center;
+        margin:auto;
+    }
+}

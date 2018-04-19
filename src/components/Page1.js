@@ -3,40 +3,31 @@ import { BrowserRouter as Router, Link } from 'react-router-dom';
 import "../css/Page1.css";
 import $ from 'jquery';
 
-class Page1 extends Component {
-
-    constructor(props){
-        super(props);
-        this.nextPage = this.nextPage.bind(this)
-        this.state = {
-            testVar: false
-        };  
-    }
-
-    nextPage(){
-        this.setState({testVar: true})
-        console.log("testVar = " + this.state.testVar)
-    }
+class PhoneModel extends Component {
 
     render() {
         return (
-            <div className="Home">
-                <input id="userInput" type="text" placeholder="Enter IMEI Here" onChange={this.enableButton.bind(this)}/>
-                <Link to={'/test'}>
-                    <button id="check" className="btn btn-success disabled" onClick={this.nextPage}>Check Status</button>
-                </Link>
+            <div className="PhoneModel">
+                <button class="btn btn-default">{this.props.children}</button>
             </div>
         );
     }
+}
 
-    enableButton(event) {
-        let imei = $("#userInput").val();
-        let re = new RegExp("^([0-9]{15}|[0-9]{2}-[0-9]{6}-[0-9]{6}-[0-9])$");
-        if (re.test(imei)) {
-            $("#check").removeClass("disabled");
-        } else {
-            $("#check").addClass("disabled");
-        } 
+class Page1 extends Component {
+
+    state = {
+        iphones:["X", "8 Plus", "8", "7 Plus", "7", "SE", "6S Plus", "6S", "6 Plus", "6"]
+    };
+
+    render() {
+        return (
+            <div className="Page1">
+                <div>
+                    {this.state.iphones.map((model, index) => {return <PhoneModel>{`iPhone ${model}`}</PhoneModel>})}
+                </div>
+            </div>
+        );
     }
 }
 
